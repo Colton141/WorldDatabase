@@ -1,6 +1,6 @@
 <ul>
   @foreach (var city in Model)
   {
-    <li>@city.GetName() @city.GetPopulation()</li>
+    <li>@city.GetName(), @city.GetDistrict() @city.GetPopulation()</li>
   }
 </ul>

@@ -1,11 +1,11 @@
 <ul>
   @foreach (var country in Model)
   {
-    @if(@country.GetCapital()>0 && @country.GetLifeExpectancy() >0)
+    @if(@country.GetLifeExpectancy() >0)
     {
        <li><a href=/country/@country.GetCode()>@country.GetName() @country.GetCode() @country.GetRegion() @country.GetCapital() @country.GetLifeExpectancy()</a></li>
     }else{
-      <li><a href=country/@country.GetCode()>@country.GetName() @country.GetCode() @country.GetRegion()</a></li>
+      <li><a href=country/@country.GetCode()>@country.GetName() @country.GetCode() @country.GetRegion() @country.GetCapital()</a></li>
     }
   }
 </ul>

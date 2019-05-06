@@ -31,9 +31,25 @@ namespace World.Models
       return _name;
     }
 
-    public int GetCapital()
+    public string GetCapital()
     {
-      return _capital;
+
+      string capital = "None";
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"SELECT * FROM city where id = "+ _capital+";";
+      MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
+      while(rdr.Read())
+      {
+      capital = rdr.GetString(1);
+      }
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+      return capital;
     }
 
     public string GetRegion()
@@ -64,6 +80,7 @@ namespace World.Models
       {
         string itemId = rdr.GetString(0);
         Country newItem = new Country(itemId);
+
         newItem._name = rdr.GetString(1);
         if(rdr.GetValue(13).GetType() == 1.GetType())
         {

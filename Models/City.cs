@@ -10,6 +10,7 @@ namespace World.Models
       private string _name;
       private string _countryCode;
       private int _population;
+      private string _district;
 
     public City (int id)
     {
@@ -35,6 +36,10 @@ namespace World.Models
     {
       return _name;
     }
+    public string GetDistrict()
+    {
+      return _district;
+    }
     public string GetCountryCode()
     {
       return _countryCode;
@@ -50,7 +55,7 @@ namespace World.Models
       MySqlConnection conn = DB.Connection();
       conn.Open();
       MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
-      cmd.CommandText = @"SELECT * FROM city where countrycode = '"+ codes + "';";
+      cmd.CommandText = @"SELECT * FROM city where countrycode = '"+ codes + "'order by name;";
       MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
       while(rdr.Read())
       {
@@ -58,6 +63,7 @@ namespace World.Models
         City newItem = new City(itemId);
         newItem._name = rdr.GetString(1);
         newItem._countryCode = rdr.GetString(2);
+        newItem._district = rdr.GetString(3);
         newItem._population = rdr.GetInt32(4);
         allItems.Add(newItem);
       }
