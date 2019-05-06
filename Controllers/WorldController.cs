@@ -22,7 +22,12 @@ namespace World.Controllers
         List<Country> allCounters = Country.GetAll();
         return View(allCounters);
     }
-
+    [HttpGet("/country/population")]
+    public ActionResult Population()
+    {
+      List<Country> allcountries = Country.GetByPopulation();
+      return View("Index", allcountries);
+    }
 
     // [HttpPost("/game")]
     // public ActionResult Create(string compare, string to)

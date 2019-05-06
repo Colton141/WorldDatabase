@@ -31,3 +31,4 @@
 /Users/Guest/Desktop/worlddata/obj/Debug/netcoreapp2.2/worlddata.Views.pdb
 /Users/Guest/Desktop/worlddata/obj/Debug/netcoreapp2.2/worlddata.csproj.CopyComplete
 /Users/Guest/Desktop/worlddata/obj/Debug/netcoreapp2.2/Razor/Views/City/Index.g.cshtml.cs
+/Users/Guest/Desktop/worlddata/obj/Debug/netcoreapp2.2/Razor/Views/World/Population.g.cshtml.cs
